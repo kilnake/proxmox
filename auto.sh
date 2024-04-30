@@ -6,3 +6,4 @@ chmod -R 777 /data /arr
 cd /arr
 wget -q -O docker-compose.yml https://raw.githubusercontent.com/kilnake/proxmox/main/docker-compose.yml
 docker compose up -d
+ip -4 address show dev eth0
