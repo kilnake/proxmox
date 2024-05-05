@@ -74,7 +74,7 @@ services:
       - PGID=1000
       - TZ=Europe/Stockholm 
     volumes:
-      - ./jellyseerr:/config
+      - ./jellyseerr:/app/config
   flaresolverr:
     container_name: flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:latest
