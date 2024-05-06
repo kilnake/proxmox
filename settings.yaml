@@ -1,0 +1,110 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+
+### Customization
+headerStyle: clean
+cardBlur: md
+theme: dark
+color: zinc
+fiveColumns: true
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: false
+  showSearchSuggestions: true
+  hideVisitURL: false
+
+### Providers
+providers:
+  openweathermap: apikeyapikeyapikeyapikeyapikey
+
+### Group layouts
+layout:
+
+## Homepage
+  Management:
+    tab: Home
+    icon: mdi-monitor-dashboard
+  Virtualization:
+    tab: Home
+    icon: mdi-desktop-classic
+  Containerization:
+    tab: Home
+    icon: mdi-docker
+  Monitoring:
+    tab: Home
+    icon: mdi-message-alert
+  Network [local links only]:
+    tab: Home
+    icon: mdi-lan
+  Media:
+    tab: Home
+    icon: mdi-video-vintage
+    useEqualHeights: true
+    style: row
+    columns: 5
+  Smart Home:
+    tab: Home
+    icon: mdi-home-automation
+  Storage:
+    tab: Home
+    icon: mdi-folder-network
+  Business:
+    tab: Home
+    icon: mdi-briefcase-variant
+  Security:
+    tab: Home
+    icon: mdi-shield-lock-open
+  Automation:
+    tab: Home
+    icon: mdi-creation-outline
+  Other Devices & Miscellaneous:
+    tab: Home
+    icon: mdi-devices
+    useEqualHeights: true
+    style: row
+    columns: 5
+
+## Glances
+  Windows PC:
+    tab: Glances
+    useEqualHeights: true
+    style: row
+    columns: 4
+    initiallyCollapsed: true
+  Linux Server 1:
+    tab: Glances
+    useEqualHeights: true
+    style: row
+    columns: 4
+    initiallyCollapsed: true
+  Raspberry Pi:
+    tab: Glances
+    useEqualHeights: true
+    style: row
+    columns: 4
+    initiallyCollapsed: true
+  Apple Pi:
+    tab: Glances
+    useEqualHeights: true
+    style: row
+    columns: 4
+    initiallyCollapsed: true
+  Pumpkin Pi:
+    tab: Glances
+    useEqualHeights: true
+    style: row
+    columns: 4
+    initiallyCollapsed: true
+
+## Bookmarks
+  Developer:
+    icon: mdi-code-braces
+  Shopping:
+    icon: mdi-shopping
+  Social & Entertainment:
+    icon: mdi-popcorn
+  Subreddits (1):
+    icon: mdi-reddit
+  Subreddits (2):
+    icon: mdi-reddit
