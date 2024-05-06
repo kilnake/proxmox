@@ -1,0 +1,57 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Sonarr:
+    icon: sonarr.png
+    href: http://192.168.1.44:8989
+    description: Series management
+    widget:
+      type: sonarr
+      url: http://192.168.1.44:8989
+      key: apikeyapikeyapikeyapikeyapikey
+
+- Radarr:
+    icon: radarr.png
+    href: http://192.168.1.44:7878
+    description: Movie management
+    widget:
+      type: radarr
+      url: http://192.168.1.44:7878
+      key: apikeyapikeyapikeyapikeyapikey
+
+- Lidarr:
+    icon: lidarr.png
+    href: http://192.168.1.44:8686
+    description: Artist management
+    widget:
+      type: lidarr
+      url: http://192.168.1.44:8686
+      key: apikeyapikeyapikeyapikeyapikey
+
+- Jellyfin:
+    icon: jellyfin.png
+    href: http://192.168.1.44:8096
+    description: Media server
+    widget:
+      type: jellyfin
+      url: http://192.168.1.44:8096
+      key: apikeyapikeyapikeyapikeyapikey
+
+- Transmission:
+    icon: transmission.png
+    href: http://192.168.1.44:9091
+    description: Torrent client
+    widget:
+      type: transmission
+      url: http://192.168.1.44:9091
+      username: your_username
+      password: your_password
+
+- Watchtower:
+    icon: watchtower.png
+    href: http://192.168.1.44:8080
+    description: Container updater
+    widget:
+      type: watchtower
+      url: http://192.168.1.44:8080
