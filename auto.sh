@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Stop and disable NetworkManager
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+
 # Configure static IPv4 address
 cat <<EOF > /etc/network/interfaces
 auto lo
@@ -20,9 +24,12 @@ echo "    gateway 2001:9b1:cdc0:a300::1" >> /etc/network/interfaces
 # Restart networking service
 service networking restart
 
+# Create directories and set permissions
 mkdir -p /data/media/tv /data/media/music /data/media/movies /data/torrents/tv /data/torrents/music /data/torrents/movies /arr /arr/homepage /arr/homepage 
 chown -R $USER:$USER /data /arr
 chmod -R 755 /data /arr
+
+# Download configuration files
 cd /arr/homepage
 wget -q -O bookmarks.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/bookmarks.yaml
 wget -q -O services.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/services.yaml
@@ -30,5 +37,9 @@ wget -q -O settings.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/
 wget -q -O widgets.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/widgets.yaml
 cd /arr
 wget -q -O docker-compose.yml https://raw.githubusercontent.com/kilnake/proxmox/main/docker-compose.yml
-docker compose up -d
+
+# Start Docker containers
+docker-compose up -d
+
+# Display IPv4 address
 ip -4 address show dev eth0
