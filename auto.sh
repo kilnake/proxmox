@@ -15,7 +15,7 @@ cd /arr
 wget -q -O docker-compose.yml https://raw.githubusercontent.com/kilnake/proxmox/main/docker-compose.yml
 
 # Start Docker containers
-docker-compose up -d
+docker compose up -d
 
 # Display IPv4 address
 ip -4 address show dev eth0
