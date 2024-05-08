@@ -2,56 +2,53 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- Sonarr:
-    icon: sonarr.png
-    href: http://192.168.1.44:8989
-    description: Series management
-    widget:
-      type: sonarr
-      url: http://192.168.1.44:8989
-      key: apikeyapikeyapikeyapikeyapikey
+- Files Management:
+    - Filebrowser:
+        href: http://192.168.1.20:8080/
+        description: 
 
-- Radarr:
-    icon: radarr.png
-    href: http://192.168.1.44:7878
-    description: Movie management
-    widget:
-      type: radarr
-      url: http://192.168.1.44:7878
-      key: apikeyapikeyapikeyapikeyapikey
+- What to see:
+    - Jellyseerr:
+        href: http://192.168.1.20:5055/
+        description: 
+    - Watcharr:
+        href: http://192.168.1.20:3080/
+        description:
+        
+- Torrents:
+    - Transmission:
+        href: http://192.168.1.20:9091/
+        description: 
+    - Nginx:
+        href: http://192.168.1.20:9999/
+        description:
+        
+- Indexers:
+    - Sonarr:
+        href: http://192.168.1.20:8989/
+        description: TV Series
+    - Radarr:
+        href: http://192.168.1.20:7878/
+        description: Movies
+    - Lidarr:
+        href: http://192.168.1.20:8686/
+        description: Songs
 
-- Lidarr:
-    icon: lidarr.png
-    href: http://192.168.1.44:8686
-    description: Artist management
-    widget:
-      type: lidarr
-      url: http://192.168.1.44:8686
-      key: apikeyapikeyapikeyapikeyapikey
-
-- Jellyfin:
-    icon: jellyfin.png
-    href: http://192.168.1.44:8096
-    description: Media server
-    widget:
-      type: jellyfin
-      url: http://192.168.1.44:8096
-      key: apikeyapikeyapikeyapikeyapikey
-
-- Transmission:
-    icon: transmission.png
-    href: http://192.168.1.44:9091
-    description: Torrent client
-    widget:
-      type: transmission
-      url: http://192.168.1.44:9091
-      username: your_username
-      password: your_password
-
-- Watchtower:
-    icon: watchtower.png
-    href: http://192.168.1.44:8080
-    description: Container updater
-    widget:
-      type: watchtower
-      url: http://192.168.1.44:8080
+- Resolvers:
+    - Flaresolverr:
+        href: http://192.168.1.20:8191/
+        description: 
+    - Prowlarr:
+        href: http://192.168.1.20:9696/
+        description:
+    - YT-DL:
+        href: http://192.168.1.20:8998/
+        description:
+        
+- Players:
+    - Jellyfin:
+        href: http://192.168.1.20:8096/
+        description: Video Player
+    - Navidrome:
+        href: http://192.168.1.20:4533/
+        description: Songs Player
