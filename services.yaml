@@ -23,10 +23,10 @@
         icon: transmission.png
         href: http://192.168.1.20:9091/
         description: 
-    - Nginx:
-        icon: nginx.png
-        href: http://192.168.1.20:9999/
-        description:
+  #  - Nginx:
+   #     icon: nginx.png
+    #    href: http://192.168.1.20:9999/
+     #   description:
         
 - Indexers:
     - Sonarr:
@@ -37,10 +37,10 @@
         icon: radarr.png
         href: http://192.168.1.20:7878/
         description: Movies
-    - Lidarr:
-        icon: lidarr.png
-        href: http://192.168.1.20:8686/
-        description: Songs
+#    - Lidarr:
+ #       icon: lidarr.png
+  #      href: http://192.168.1.20:8686/
+   #     description: Songs
 
 - Resolvers:
     - Flaresolverr:
@@ -61,7 +61,7 @@
         icon: jellyfin.png
         href: http://192.168.1.20:8096/
         description: Video Player
-    - Navidrome:
-        icon: navidrome.png
-        href: http://192.168.1.20:4533/
-        description: Songs Player
+   # - Navidrome:
+    #    icon: navidrome.png
+     #   href: http://192.168.1.20:4533/
+      #  description: Songs Player
