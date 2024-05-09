@@ -10,10 +10,11 @@
 
 - What to see:
     - Jellyseerr:
-         icon: jellyseerr.png
+        icon: jellyseerr.png
         href: http://192.168.1.20:5055/
         description: 
     - Watcharr:
+        icon: watcharr.png
         href: http://192.168.1.20:3080/
         description:
         
@@ -23,6 +24,7 @@
         href: http://192.168.1.20:9091/
         description: 
     - Nginx:
+        icon: nginx.png
         href: http://192.168.1.20:9999/
         description:
         
@@ -32,9 +34,11 @@
         href: http://192.168.1.20:8989/
         description: TV Series
     - Radarr:
+        icon: radarr.png
         href: http://192.168.1.20:7878/
         description: Movies
     - Lidarr:
+        icon: lidarr.png
         href: http://192.168.1.20:8686/
         description: Songs
 
