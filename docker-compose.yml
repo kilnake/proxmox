@@ -110,14 +110,14 @@ services:
     image: lscr.io/linuxserver/qbittorrent:latest
     restart: unless-stopped
     ports:
-      - 4444:8080
+      - 4444:4444
       - 6881:6881
       - 6881:6881/udp
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
-      - WEBUI_PORT=8080
+      - WEBUI_PORT=4444
       - TORRENTING_PORT=6881
     volumes:
       - ./qbittorrent:/config
