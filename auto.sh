@@ -19,3 +19,6 @@ docker compose up -d
 
 # Display IPv4 address
 ip -4 address show dev eth0
+
+# Display qbittorrent temporary password
+docker logs qbittorrent
