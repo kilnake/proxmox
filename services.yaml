@@ -4,11 +4,13 @@
 
 - Files Management:
     - Filebrowser:
+        icon: filebrowser.png
         href: http://192.168.1.20:8080/
         description: 
 
 - What to see:
     - Jellyseerr:
+         icon: jellyseerr.png
         href: http://192.168.1.20:5055/
         description: 
     - Watcharr:
@@ -17,6 +19,7 @@
         
 - Torrents:
     - Transmission:
+        icon: transmission.png
         href: http://192.168.1.20:9091/
         description: 
     - Nginx:
@@ -25,6 +28,7 @@
         
 - Indexers:
     - Sonarr:
+        icon: sonarr.png
         href: http://192.168.1.20:8989/
         description: TV Series
     - Radarr:
@@ -36,19 +40,24 @@
 
 - Resolvers:
     - Flaresolverr:
+        icon: flaresolverr.png
         href: http://192.168.1.20:8191/
         description: 
     - Prowlarr:
+        icon: prowlarr.png
         href: http://192.168.1.20:9696/
         description:
     - YT-DL:
+        icon: youtube.png
         href: http://192.168.1.20:8998/
         description:
         
 - Players:
     - Jellyfin:
+        icon: jellyfin.png
         href: http://192.168.1.20:8096/
         description: Video Player
     - Navidrome:
+        icon: navidrome.png
         href: http://192.168.1.20:4533/
         description: Songs Player
