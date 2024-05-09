@@ -3,7 +3,7 @@
 # Create directories and set permissions
 mkdir -p /data/media/tv /data/media/music /data/media/movies /data/torrents/tv /data/torrents/music /data/torrents/movies /arr /arr/homepage /arr/homepage 
 chown -R $USER:$USER /data /arr
-chmod -R 755 /data /arr
+chmod -R 777 /data /arr
 
 # Download configuration files
 cd /arr/homepage
