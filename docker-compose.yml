@@ -90,20 +90,37 @@ services:
     volumes:
       - ./jellyfin:/config
       - /data/media:/data/media
-  transmission:
-    container_name: transmission
-    image: linuxserver/transmission:latest
+#  transmission:
+ #   container_name: transmission
+  #  image: linuxserver/transmission:latest
+   # restart: unless-stopped
+    #ports:
+     # - 9091:9091
+      #- 51413:51413
+      #- 51413:51413/udp
+#    environment:
+ #     - PUID=1000
+  #    - PGID=1000
+   #   - TZ=Europe/Stockholm
+    #volumes:
+     # - ./transmission:/config
+      #- /data/torrents:/data/torrents:rw
+  qbittorrent:
+    container_name: qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:latest
     restart: unless-stopped
     ports:
-      - 9091:9091
-      - 51413:51413
-      - 51413:51413/udp
+      - 4444:8080
+      - 6881:6881
+      - 6881:6881/udp
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
     volumes:
-      - ./transmission:/config
+      - ./qbittorrent:/config
       - /data/torrents:/data/torrents:rw
   ytdl_material:
       environment: 
