@@ -144,7 +144,6 @@ services:
       - TZ=Europe/Stockholm
       - FB_NOAUTH=true
     volumes:
-      - ./filebrowser:/config
       - /:/srv
   homepage:
     container_name: homepage
