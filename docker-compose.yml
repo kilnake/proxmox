@@ -75,8 +75,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
-    volumes:
-      - ./flaresolverr:/config
   jellyfin:
     container_name: jellyfin
     image: linuxserver/jellyfin:latest
