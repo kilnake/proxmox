@@ -5,9 +5,11 @@
 - Files Management:
     - Filebrowser:
         icon: filebrowser.png
-        href: http://192.168.1.4:8080/
-        description: 
-        
+        href: http://192.168.1.20:8080/
+    - Printer:
+        icon: brother.png
+        href: http://192.168.1.5/
+
 - Ads Management:
     - Pi-hole:
         icon: pi-hole.png
@@ -15,65 +17,57 @@
     - Wireguard:
         icon: wireguard.png
         href: http://192.168.1.6:51821/
-        
+
 - What to see:
     - Jellyseerr:
         icon: jellyseerr.png
-        href: http://192.168.1.4:5055/
-        description: 
+        href: http://192.168.1.20:5055/
     - Watcharr:
         icon: watcharr.png
-        href: http://192.168.1.4:3080/
-        description:
+        href: http://192.168.1.20:3080/
         
 - Torrents:
   #  - Transmission:
    #     icon: transmission.png
-    #    href: http://192.168.1.4:9091/
-     #   description: 
+    #    href: http://192.168.1.20:9091/
     - Qbittorrent:
         icon: qbittorrent.png
-        href: http://192.168.1.4:4444/
-        description:
+        href: http://192.168.1.20:4444/
     - YT-DL:
         icon: youtube.png
-        href: http://192.168.1.4:8998/
-        description:
+        href: http://192.168.1.20:8998/
   #  - Nginx:
    #     icon: nginx.png
-    #    href: http://192.168.1.4:9999/
-     #   description:
+    #    href: http://192.168.1.20:9999/
         
 - Indexers:
     - Sonarr:
         icon: sonarr.png
-        href: http://192.168.1.4:8989/
+        href: http://192.168.1.20:8989/
         description: TV Series
     - Radarr:
         icon: radarr.png
-        href: http://192.168.1.4:7878/
+        href: http://192.168.1.20:7878/
         description: Movies
 #    - Lidarr:
  #       icon: lidarr.png
-  #      href: http://192.168.1.4:8686/
+  #      href: http://192.168.1.20:8686/
    #     description: Songs
 
 - Resolvers:
     - Flaresolverr:
         icon: flaresolverr.png
-        href: http://192.168.1.4:8191/
-        description: 
+        href: http://192.168.1.20:8191/
     - Prowlarr:
         icon: prowlarr.png
-        href: http://192.168.1.4:9696/
-        description:
+        href: http://192.168.1.20:9696/
         
 - Players:
     - Jellyfin:
         icon: jellyfin.png
-        href: http://192.168.1.4:8096/
+        href: http://192.168.1.20:8096/
         description: Video Player
    # - Navidrome:
     #    icon: navidrome.png
-     #   href: http://192.168.1.4:4533/
+     #   href: http://192.168.1.20:4533/
       #  description: Songs Player
