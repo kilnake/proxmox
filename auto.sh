@@ -8,6 +8,8 @@ chmod -R 777 /data /arr
 # Download configuration files
 cd /arr/homepage
 wget -q -O services.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/arr/homepage/services.yaml
+wget -q -O bookmarks.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/arr/homepage/bookmarks.yaml
+wget -q -O widgets.yaml https://raw.githubusercontent.com/kilnake/proxmox/main/arr/homepage/widgets.yaml
 cd /arr/prowlarr
 wget -q -O config.xml https://raw.githubusercontent.com/kilnake/proxmox/main/arr/prowlarr/config.xml
 cd /arr/radarr
