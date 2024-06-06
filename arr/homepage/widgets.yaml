@@ -2,6 +2,9 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/service-widgets
 
+- logo:
+    icon: https://raw.githubusercontent.com/kilnake/proxmox/main/arr/homepage/ravi_kilnake_logo.svg #https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/I_Love_New_York.svg/1101px-I_Love_New_York.svg.png # optional
+    
 - resources:
     cpu: true
     memory: true
@@ -13,5 +16,18 @@
     
 - datetime:
     text_size: xl
+    locale: sw
     format:
+      hourCycle: h23
       timeStyle: short
+      dateStyle: long
+      
+- openmeteo:
+    label: Höganäs # optional
+    latitude: 56.19211
+    longitude: 12.57455
+    timezone: Europe/Stockholm # optional
+    units: metric # or imperial
+    cache: 5 # Time in minutes to cache API responses, to stay within limits
+    format: # optional, Intl.NumberFormat options
+      maximumFractionDigits: 1
