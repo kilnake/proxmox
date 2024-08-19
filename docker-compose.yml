@@ -166,4 +166,3 @@ services:
       - PGID=1000
       - TZ=Europe/Stockholm
       - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_POLL_INTERVAL=604800
