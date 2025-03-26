@@ -156,13 +156,41 @@ services:
     volumes:
       - ./homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
-  watchtower:
-    container_name: watchtower
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    ports:
+      - 9443:9443
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
-      - WATCHTOWER_CLEANUP=true
+    volumes:
+      - ./portainer:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+  dumbkan:
+    container_name: dumbkan
+    image: dumbwareio/dumbkan:latest
+    restart: unless-stopped
+    ports:
+      - 8081:3000
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./dumbkan:/config
+
+  cups:
+    container_name: cups
+    image: ydkn/cups:latest
+    restart: unless-stopped
+    ports:
+      - 631:631
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./cups:/etc/cups
