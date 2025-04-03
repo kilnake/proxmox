@@ -49,7 +49,7 @@ services:
       - PGID=1000
       - TZ=Europe/Stockholm
     volumes:
-      - ./watcharr/data:/data
+      - ./watcharr:/data
   jellyseerr:
     container_name: jellyseerr
     image: fallenbagel/jellyseerr:latest
