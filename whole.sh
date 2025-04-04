@@ -23,5 +23,3 @@ http://192.168.1.33:3080
 http://192.168.1.33:8080"
 
 echo -e "\n# $DESCRIPTION" >> "/etc/pve/lxc/$CT_ID.conf"
-
-bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh)"
