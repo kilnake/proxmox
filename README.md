@@ -5,3 +5,7 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/aut
 Test
 
 bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh)"
+
+whole thing
+
+bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/whole.sh)"
