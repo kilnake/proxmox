@@ -1,42 +1,46 @@
 #!/bin/bash
 
-# STEP 1: Pull and run the container creation script, then wait for manual exit
-echo "Running Alpine Docker CT creation script..."
+echo "[1] Launching Alpine Docker CT creation script..."
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/alpine-docker.sh)"
 
-echo "Please complete the setup in the interactive script. Press ENTER to continue when done."
-read
+read -p "[WAITING] Finish the interactive CT creation and press ENTER to continue..."
 
-# STEP 2: Wait for 5 seconds
+echo "[2] Sleeping for 5 seconds..."
 sleep 5
 
-# STEP 3: Find the most recently created container (assuming it's the last created one)
-CTID=$(pct list | tail -n 1 | awk '{print $1}')
-echo "Detected latest CT ID: $CTID"
+echo "[3] Finding the most recently created container..."
+CTID=$(pct list | awk 'NR>1 {print $1}' | sort -n | tail -1)
+echo "[INFO] Found container ID: $CTID"
 
-# Get container IP address
-CT_IP=$(pct exec $CTID ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
-echo "Current container IP: $CT_IP"
+echo "[3.1] Fetching current container IP..."
+CT_IP=$(pct exec $CTID -- ip -4 -o addr show eth0 | awk '{print $4}' | cut -d/ -f1)
 
-# Extract subnet from current IP for substitution
-SUBNET=$(echo $CT_IP | awk -F. '{print $1 "." $2 "." $3}')
+if [[ -z "$CT_IP" ]]; then
+    echo "[ERROR] Could not retrieve IP address from container $CTID"
+    exit 1
+fi
+
+SUBNET=$(echo "$CT_IP" | awk -F. '{print $1 "." $2 "." $3}')
 NEW_IP="${SUBNET}.33"
 GATEWAY="${SUBNET}.1"
 
-# Stop the container to reconfigure networking
+echo "[3.2] Setting static IP: $NEW_IP/24 with gateway $GATEWAY"
+
+# Stop container before applying network change
 pct stop $CTID
 
-# STEP 3 continued: Set static IP and gateway
+# Set static IP using Proxmox tools
 pct set $CTID -net0 name=eth0,bridge=vmbr0,ip=${NEW_IP}/24,gw=${GATEWAY}
-echo "Set new IP: $NEW_IP/24 with gateway $GATEWAY"
 
 # Start container again
 pct start $CTID
 
-# STEP 4: Update container description with the URL
+# STEP 4: Set notes/description with access link
+echo "[4] Setting container description in Proxmox..."
 pct set $CTID --description "http://${NEW_IP}:8080"
-echo "Updated container description to http://${NEW_IP}:8080"
 
-# STEP 5: Enter the container
-echo "Entering container $CTID..."
-pct enter $CTID -- bash -c "wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh | bash"
+# STEP 5 & 6: Enter container, install bash + wget, then run the remote script
+echo "[5] Entering Alpine container and executing script..."
+pct exec $CTID -- /bin/sh -c "apk add --no-cache bash wget && bash -c \"\$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh)\""
+
+echo "[✔️  DONE] Container $CTID is configured and script is executed."
