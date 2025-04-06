@@ -41,6 +41,6 @@ pct set $CTID --description "http://${NEW_IP}:8080"
 
 # STEP 5 & 6: Enter container, install bash + wget, then run the remote script
 echo "[5] Entering Alpine container and executing script..."
-pct exec $CTID -- /bin/sh -c "apk add --no-cache bash wget && bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh)"
+pct exec $CTID -- /bin/sh -c "apk add --no-cache bash wget && bash -c \$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh)"
 
 echo "[✔️  DONE] Container $CTID is configured and script is executed."
