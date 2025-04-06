@@ -179,9 +179,9 @@ services:
     ports:
       - 8191:8191
     environment:
-      - LOG_LEVEL=${LOG_LEVEL:-info}
-      - LOG_HTML=${LOG_HTML:-false}
-      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - LOG_LEVEL=\${LOG_LEVEL:-info}
+      - LOG_HTML=\${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=\${CAPTCHA_SOLVER:-none}
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
@@ -257,12 +257,10 @@ services:
 EOF
 docker compose up -d
 
-# Display IPv4 address
-ip -4 address show dev eth0
 # Introduce a delay of 10 seconds
 sleep 10
 
 # Display qbittorrent temporary password
 docker logs qbittorrent
 "
-echo "[✔️  DONE] Container $CTID is configured and script is executed."
+echo "[✔️  DONE]"
