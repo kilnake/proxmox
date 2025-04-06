@@ -3,8 +3,6 @@
 echo "[1] Launching Alpine Docker CT creation script..."
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/alpine-docker.sh)"
 
-read -p "[WAITING] Finish the interactive CT creation and press ENTER to continue..."
-
 echo "[2] Sleeping for 5 seconds..."
 sleep 5
 
@@ -41,12 +39,12 @@ pct set $CTID --description "http://${NEW_IP}:8080"
 
 # STEP 5 & 6: Enter container, install bash + wget, then run the remote script
 echo "[5] Entering Alpine container and executing script..."
-pct exec $CTID -- /bin/sh -c "apk add --no-cache bash wget && /bin/sh -c "
-mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr
-chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr
-chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr
+pct exec $CTID -- /bin/sh -c "apk add --no-cache bash wget &&
+mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr &&
+chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr &&
+chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr &&
 
-cd /arr/prowlarr
+cd /arr/prowlarr &&
 cat > config.xml <<EOF
 <Config>
   <BindAddress>*</BindAddress>
@@ -67,7 +65,7 @@ cat > config.xml <<EOF
 </Config>
 EOF
 
-cd /arr/radarr
+cd /arr/radarr &&
 cat > config.xml <<EOF
 <Config>
   <BindAddress>*</BindAddress>
@@ -88,7 +86,7 @@ cat > config.xml <<EOF
 </Config>
 EOF
 
-cd /arr/sonarr
+cd /arr/sonarr &&
 cat > config.xml <<EOF
 <Config>
   <BindAddress>*</BindAddress>
@@ -109,7 +107,7 @@ cat > config.xml <<EOF
 </Config>
 EOF
 
-cd /arr
+cd /arr &&
 cat > docker-compose.yml <<EOF
 services:
   sonarr:
@@ -267,6 +265,4 @@ sleep 10
 # Display qbittorrent temporary password
 docker logs qbittorrent
 "
-
-
 echo "[✔️  DONE] Container $CTID is configured and script is executed."
