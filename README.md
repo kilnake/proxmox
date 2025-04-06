@@ -9,3 +9,7 @@ bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/tes
 whole thing
 
 bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/whole.sh)"
+
+gt
+
+bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/gt.sh)"
