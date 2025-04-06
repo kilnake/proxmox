@@ -18,3 +18,5 @@ echo -e "\n# $DESCRIPTION" >> "/etc/pve/lxc/$CT_ID.conf"
 pct enter $(ls -t /etc/pve/lxc/ | head -n1 | sed 's/\.conf//')
 
 pct enter "$CT_ID"
+
+bash -c "$(wget -qO - https://raw.githubusercontent.com/kilnake/proxmox/main/test.sh)"
