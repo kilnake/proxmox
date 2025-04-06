@@ -1,6 +1,8 @@
 #!/bin/bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/alpine-docker.sh)"
 
+sleep 5
+
 CT_ID=$(pct list | tail -n +2 | awk '{print $1}' | sort -n | tail -1)
 if [[ -z "$CT_ID" ]]; then
     echo "Error: No container ID found!"
