@@ -216,6 +216,7 @@ services:
     volumes:
       - /:/srv
 EOF
+
 docker compose up -d
 
 # Display IPv4 address
