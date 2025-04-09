@@ -2,7 +2,7 @@
 
 # Create directories and set permissions
 mkdir -p /data/media/tv /data/media/music /data/media/movies /data/torrents/tv /data/torrents/music /data/torrents/movies /arr /arr/homepage /arr/prowlarr /arr/radarr /arr/sonarr
-chown -R $USER:$USER /data /arr
+chown -R $(whoami)":"$(whoami) /data /arr
 chmod -R 777 /data /arr
 
 # Download configuration files
