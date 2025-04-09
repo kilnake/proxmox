@@ -1,8 +1,8 @@
 #!/bin/sh
-
+set -euo pipefail
 # Create directories and set permissions
 mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr
-chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr
+chown -R "$(whoami)":"$(whoami)" /data /arr /arr/prowlarr /arr/radarr /arr/sonarr
 chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr
 
 cd /arr/prowlarr
