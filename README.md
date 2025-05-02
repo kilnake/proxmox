@@ -9,7 +9,3 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/tes
 whole thing
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/whole.sh)"
-
-gt
-
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/gt.sh)"
