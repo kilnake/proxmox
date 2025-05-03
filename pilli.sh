@@ -41,6 +41,10 @@ cat > widgets.yaml <<EOF
       maximumFractionDigits: 1
 EOF
 
+cat > bookmarks.yaml <<EOF
+---
+EOF
+
 cat > settings.yaml <<EOF
 ---
 # For configuration options and examples, please see:
@@ -444,7 +448,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
-      - HOMEPAGE_ALLOWED_HOSTS=192.168.1.4
+      - HOMEPAGE_ALLOWED_HOSTS=*
     volumes:
       - ./homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
