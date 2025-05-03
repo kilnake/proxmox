@@ -1,7 +1,7 @@
 #!/bin/sh
 # ----------------------------------------------Making folders and giving permissions
 mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
-chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr arr/qBittorrent /arr/homepage
+chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
 chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
 
 # ----------------------------------------------config-homepage
