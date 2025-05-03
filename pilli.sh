@@ -393,7 +393,7 @@ services:
       - WEBUI_PORT=4444
       - TORRENTING_PORT=6881
     volumes:
-      - ./qBittorrent:/config
+      - ./:/config
       - /data/torrents:/data/torrents:rw
   ytdl_material:
     container_name: Youtube-download
