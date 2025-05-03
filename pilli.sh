@@ -466,7 +466,7 @@ services:
     volumes:
       - ./docking-station:/config
       - ./docking-station/data:/data
-      - .docking-station/logs:/logs
+      - ./docking-station/logs:/logs
       - /var/run/docker.sock:/var/run/docker.sock
       - /arr:/arr
 EOF
