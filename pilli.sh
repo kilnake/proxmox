@@ -9,7 +9,6 @@ chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /
 cd /arr/homepage
 cat > widgets.yaml <<EOF
 ---
-# For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/service-widgets
 
 - logo:
@@ -48,7 +47,6 @@ EOF
 
 cat > settings.yaml <<EOF
 ---
-# For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/settings
 
 providers:
