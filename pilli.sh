@@ -1,4 +1,5 @@
 #!/bin/sh
+set -euo pipefail
 # ----------------------------------------------Making folders and giving permissions
 mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
 chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
@@ -57,9 +58,6 @@ EOF
 
 cat > services.yaml <<EOF
 ---
-# For configuration options and examples, please see:
-# https://gethomepage.dev/latest/configs/services
-
 - Management:
     - Filebrowser:
         icon: filebrowser.png
