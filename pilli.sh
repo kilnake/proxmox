@@ -342,7 +342,7 @@ services:
       - PGID=1000
       - TZ=Europe/Stockholm
     volumes:
-      - ./watcharr:/data
+      - ./watcharr/data:/data
   jellyseerr:
     container_name: jellyseerr
     image: fallenbagel/jellyseerr:latest
@@ -396,7 +396,7 @@ services:
       - WEBUI_PORT=4444
       - TORRENTING_PORT=6881
     volumes:
-      - ./:/config
+      - ./qbittorrent:/config
       - /data/torrents:/data/torrents:rw
   ytdl_material:
     container_name: Youtube-download
