@@ -30,15 +30,6 @@ cat > widgets.yaml <<EOF
       timeStyle: short
       dateStyle: long
 
-- openmeteo:
-    label: Höganäs # optional
-    latitude: 56.19211
-    longitude: 12.57455
-    timezone: Europe/Stockholm # optional
-    units: metric # or imperial
-    cache: 5 # Time in minutes to cache API responses, to stay within limits
-    format: # optional, Intl.NumberFormat options
-      maximumFractionDigits: 1
 EOF
 
 cat > bookmarks.yaml <<EOF
@@ -60,6 +51,9 @@ cat > services.yaml <<EOF
     - Filebrowser:
         icon: filebrowser.png
         href: http://192.168.1.4:8080/
+    - SearXNG:
+        icon: searxng.png
+        href: http://192.168.1.4:9017
     - Docking-Station:
         icon: docking-station.png
         href: http://192.168.1.4:12000
@@ -68,13 +62,17 @@ cat > services.yaml <<EOF
     - Pi-hole:
         icon: pi-hole.png
         href: https://192.168.1.2/admin/login
+    - Wireguard:
+        icon: wireguard.png
+        href: http://192.168.1.6:51821/
+    - Portainer:
+        icon: portainer.png
+        href: https://192.168.1.4:9443/
 
-- What is Trending:
+- What to see:
     - Jellyseerr:
         icon: jellyseerr.png
         href: http://192.168.1.4:5055/
-
-- What we saw:
     - Watcharr:
         icon: watcharr.png
         href: http://192.168.1.4:3080/
@@ -114,6 +112,11 @@ cat > services.yaml <<EOF
         icon: jellyfin.png
         href: http://192.168.1.4:8096/
         description: Video Player
+        
+- OSINT:
+    - Web-Check:
+        icon: web-check.png
+        href: http://192.168.1.44:3000
 EOF
 
 # ----------------------------------------------config-torrent
