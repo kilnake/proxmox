@@ -66,7 +66,7 @@ services:
       - ./watcharr/data:/data
   jellyseerr:
     container_name: jellyseerr
-    image: fallenbagel/jellyseerr:latest
+    image: ghcr.io/fallenbagel/jellyseerr:latest
     restart: unless-stopped
     ports:
       - 5055:5055
@@ -173,26 +173,22 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   portainer:
     container_name: portainer
-    image: portainer/portainer-ce:latest
+    image: portainer/portainer-ce:lts
     restart: unless-stopped
     ports:
       - 9443:9443
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
     volumes:
       - ./portainer:/data
       - /var/run/docker.sock:/var/run/docker.sock
-  dumbkan:
-    container_name: dumbkan
-    image: dumbwareio/dumbkan:latest
+  docking-station:
+    container_name: docking-station
+    image: loolzzz/docking-station
     restart: unless-stopped
     ports:
-      - 8081:3000
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
+      - 12000:3000
     volumes:
-      - ./dumbkan:/config
+      - ./docking-station:/config
+      - ./docking-station/data:/data
+      - ./docking-station/logs:/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /arr:/arr
