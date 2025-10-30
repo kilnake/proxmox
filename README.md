@@ -5,7 +5,3 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/aut
 Test
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/pilli.sh)"
-
-whole thing
-
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/whole.sh)"
