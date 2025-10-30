@@ -38,6 +38,20 @@ services:
       - TZ=Europe/Stockholm
     volumes:
       - ./prowlarr:/config
+  bazarr:
+    container_name: bazarr
+    image: lscr.io/linuxserver/bazarr:latest
+    restart: unless-stopped
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./bazarr:/config
+      - /data/media/movies:/movies
+      - /data/media/tv:/tv
   watcharr:
     container_name: watcharr
     image: ghcr.io/sbondco/watcharr:latest
@@ -49,7 +63,7 @@ services:
       - PGID=1000
       - TZ=Europe/Stockholm
     volumes:
-      - ./watcharr:/data
+      - ./watcharr/data:/data
   jellyseerr:
     container_name: jellyseerr
     image: fallenbagel/jellyseerr:latest
@@ -153,6 +167,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Stockholm
+      - HOMEPAGE_ALLOWED_HOSTS=192.168.1.4
     volumes:
       - ./homepage:/app/config
       - /var/run/docker.sock:/var/run/docker.sock
