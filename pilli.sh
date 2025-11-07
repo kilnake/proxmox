@@ -345,7 +345,7 @@ services:
       - ./watcharr/data:/data
   jellyseerr:
     container_name: jellyseerr
-    image: fallenbagel/jellyseerr:latest
+    image: ghcr.io/fallenbagel/jellyseerr:latest
     restart: unless-stopped
     ports:
       - 5055:5055
@@ -453,7 +453,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   portainer:
     container_name: portainer
-    image: portainer/portainer-ce:2.21.5
+    image: portainer/portainer-ce:lts
     restart: unless-stopped
     ports:
       - 9443:9443
