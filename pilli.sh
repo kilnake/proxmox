@@ -18,11 +18,7 @@ cat > widgets.yaml <<EOF
     cpu: true
     memory: true
     disk: /
-
-- search:
-    provider: brave
-    target: _blank
-
+    
 - datetime:
     text_size: xl
     format:
