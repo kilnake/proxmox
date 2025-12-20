@@ -45,9 +45,9 @@ cat > services.yaml <<EOF
     - Filebrowser:
         icon: filebrowser.png
         href: http://192.168.1.4:8080/
-    - SearXNG:
-        icon: searxng.png
-        href: http://192.168.1.4:9017
+    - Portainer:
+        icon: portainer.png
+        href: https://192.168.1.4:9443/
     - Docking-Station:
         icon: docking-station.png
         href: http://192.168.1.4:12000
@@ -59,14 +59,14 @@ cat > services.yaml <<EOF
     - Technitium:
         icon: technitium.png
         href: http://192.168.1.11:5380
-    - Portainer:
-        icon: portainer.png
-        href: https://192.168.1.4:9443/
 
-- What to see:
+- Media:
     - Jellyseerr:
         icon: jellyseerr.png
         href: http://192.168.1.4:5055/
+    - Jellyfin:
+        icon: jellyfin.png
+        href: http://192.168.1.4:8096/
     - Watcharr:
         icon: watcharr.png
         href: http://192.168.1.4:3080/
@@ -97,12 +97,6 @@ cat > services.yaml <<EOF
     - Prowlarr:
         icon: prowlarr.png
         href: http://192.168.1.4:9696/
-
-- Players:
-    - Jellyfin:
-        icon: jellyfin.png
-        href: http://192.168.1.4:8096/
-        description: Video Player
 EOF
 
 # ----------------------------------------------config-torrent
