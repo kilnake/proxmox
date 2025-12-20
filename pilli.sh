@@ -384,32 +384,6 @@ services:
     volumes:
       - ./qbittorrent:/config
       - /data/torrents:/data/torrents:rw
-  ytdl_material:
-    container_name: Youtube-download
-    image: tzahi12345/youtubedl-material:latest
-    restart: unless-stopped
-    depends_on:
-      - ytdl-mongo-db
-    ports:
-      - 8998:17442
-    environment:
-      ytdl_mongodb_connection_string: 'mongodb://ytdl-mongo-db:27017'
-      ytdl_use_local_db: 'false'
-      write_ytdl_config: 'true'
-    volumes:
-      - ./ytdl/appdata:/app/appdata
-      - /data/media/ytdl/audio:/app/audio
-      - /data/media/ytdl/video:/app/video
-      - /data/media/ytdl/subscriptions:/app/subscriptions
-      - /data/media/ytdl/users:/app/users
-  ytdl-mongo-db:
-    container_name: mongo-db
-    image: mongo:4
-    restart: unless-stopped
-    logging:
-      driver: none
-    volumes:
-      - ./ytdl/db/:/data/db
   filebrowser:
     container_name: filebrowser
     image: filebrowser/filebrowser:latest
