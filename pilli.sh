@@ -56,9 +56,9 @@ cat > services.yaml <<EOF
     - Pi-hole:
         icon: pi-hole.png
         href: https://192.168.1.2/admin/login
-    - Wireguard:
-        icon: wireguard.png
-        href: http://192.168.1.6:51821/
+    - Technitium:
+        icon: technitium.png
+        href: http://192.168.1.11:5380
     - Portainer:
         icon: portainer.png
         href: https://192.168.1.4:9443/
@@ -75,9 +75,6 @@ cat > services.yaml <<EOF
     - Qbittorrent:
         icon: qbittorrent.png
         href: http://192.168.1.4:4444/
-    - YT-DL:
-        icon: youtube.png
-        href: http://192.168.1.4:8998/
 
 - Indexers:
     - Sonarr:
@@ -106,11 +103,6 @@ cat > services.yaml <<EOF
         icon: jellyfin.png
         href: http://192.168.1.4:8096/
         description: Video Player
-        
-- OSINT:
-    - Web-Check:
-        icon: web-check.png
-        href: http://192.168.1.44:3000
 EOF
 
 # ----------------------------------------------config-torrent
