@@ -38,11 +38,9 @@ EOF
 
 cat > settings.yaml <<EOF
 ---
-# https://gethomepage.dev/latest/configs/settings
-
-providers:
-  openweathermap: openweathermapapikey
-  weatherapi: weatherapiapikey
+favicon: https://raw.githubusercontent.com/kilnake/cv/refs/heads/main/pics/hindi.svg?token=GHSAT0AAAAAADNTN3U7X4IB2Z5YQZ6XGIOO2KG4CZA
+title: Dashboard
+fullWidth: true
 EOF
 
 cat > services.yaml <<EOF
