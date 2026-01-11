@@ -1,9 +1,18 @@
 #!/bin/sh
 set -euo pipefail
 # ----------------------------------------------Making folders and giving permissions
-mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
-chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
-chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage
+mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data
+chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data
+chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data
+# --------------config-filebrowser-quantum---
+cd /arr/filebrowser/data
+cat > config.yaml <<EOF
+server:
+  sources:
+    - path: /folder
+      config:
+        defaultEnabled: true
+EOF
 
 # ----------------------------------------------config-homepage
 cd /arr/homepage
@@ -42,8 +51,8 @@ EOF
 cat > services.yaml <<EOF
 ---
 - Management:
-    - Filebrowser:
-        icon: filebrowser.png
+    - Filebrowser-quantum:
+        icon: filebrowser-quantum.png
         href: http://192.168.1.4:8080/
     - Portainer:
         icon: portainer.png
@@ -378,19 +387,18 @@ services:
     volumes:
       - ./qbittorrent:/config
       - /data/torrents:/data/torrents:rw
-  filebrowser:
-    container_name: filebrowser
-    image: filebrowser/filebrowser:latest
+  filebrowserquantum:
+    container_name: filebrowserquantum
+    image: gtstef/filebrowser:latest
     restart: unless-stopped
     ports:
       - 8080:80
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Stockholm
-      - FB_NOAUTH=true
+      FILEBROWSER_CONFIG: "data/config.yaml"
+      FILEBROWSER_ADMIN_PASSWORD: ""
     volumes:
-      - /:/srv
+      - /:/folder
+      - ./filebrowser/data:/home/filebrowser/data
   homepage:
     container_name: homepage
     image: ghcr.io/gethomepage/homepage:latest
