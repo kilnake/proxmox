@@ -1,9 +1,94 @@
 #!/bin/sh
 set -euo pipefail
 # ----------------------------------------------Making folders and giving permissions
-mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data
-chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data
-chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data
+mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
+chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
+chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
+
+#-------------Caddyfile---
+cd /arr/caddy/conf
+cat > Caddyfile <<EOF
+{
+    local_certs
+}
+
+openwrt.lan {
+    reverse_proxy https://192.168.1.1 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+pve.lan {
+	reverse_proxy https://192.168.1.3:8006 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+dns.lan {
+	reverse_proxy https://192.168.1.2:53443  {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+portainer.lan {
+	reverse_proxy https://192.168.1.4:9443 {
+        transport http {
+            tls_insecure_skip_verify
+        }
+    }
+}
+
+sonarr.lan {
+	reverse_proxy http://192.168.1.4:8989
+}
+
+radarr.lan {
+	reverse_proxy http://192.168.1.4:7878
+}
+
+prowlarr.lan {
+	reverse_proxy http://192.168.1.4:9696
+}
+
+bazarr.lan {
+	reverse_proxy http://192.168.1.4:6767
+}
+
+watcharr.lan {
+	reverse_proxy http://192.168.1.4:3080
+}
+
+jellyseerr.lan {
+	reverse_proxy http://192.168.1.4:5055
+}
+
+jellyfin.lan {
+	reverse_proxy http://192.168.1.4:8096
+}
+
+bit.lan {
+	reverse_proxy http://192.168.1.4:4444
+}
+
+files.lan {
+	reverse_proxy http://192.168.1.4:8080
+}
+
+media.lan {
+	reverse_proxy http://192.168.1.4:8880
+}
+
+dock.lan {
+	reverse_proxy http://192.168.1.4:12000
+}
+EOF
+
 # --------------config-filebrowser-quantum---
 cd /arr/filebrowser/data
 cat > config.yaml <<EOF
@@ -13,7 +98,6 @@ server:
       config:
         defaultEnabled: true
 EOF
-
 # ----------------------------------------------config-homepage
 cd /arr/homepage
 cat > widgets.yaml <<EOF
@@ -268,6 +352,19 @@ EOF
 cd /arr
 cat > docker-compose.yml <<EOF
 services:
+  caddy:
+    container_name: caddy
+    image: caddy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./caddy/conf:/etc/caddy
+      - ./caddy/site:/srv
+      - ./caddy/caddy_data:/data
+      - ./caddy/caddy_config:/config
   sonarr:
     container_name: sonarr
     image: linuxserver/sonarr:latest
