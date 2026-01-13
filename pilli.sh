@@ -2,8 +2,8 @@
 set -euo pipefail
 # ----------------------------------------------Making folders and giving permissions
 mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
-chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
-chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
+#chown -R $USER:$USER /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
+#chmod -R 777 /data /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qBittorrent /arr/homepage /arr/filebrowser/data /arr/caddy/conf /arr/caddy/site /arr/caddy/caddy_data /arr/caddy/caddy_config
 
 #-------------Caddyfile---
 cd /arr/caddy/conf
