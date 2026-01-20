@@ -291,9 +291,8 @@ cat > config.xml <<EOF
   <Port>9696</Port>
   <SslPort>6969</SslPort>
   <EnableSsl>False</EnableSsl>
-  <LaunchBrowser>True</LaunchBrowser>
   <ApiKey>*</ApiKey>
-  <AuthenticationMethod>Basic</AuthenticationMethod>
+  <AuthenticationMethod>External</AuthenticationMethod>
   <AuthenticationRequired>DisabledForLocalAddresses</AuthenticationRequired>
   <Branch>master</Branch>
   <LogLevel>info</LogLevel>
@@ -313,9 +312,8 @@ cat > config.xml <<EOF
   <Port>7878</Port>
   <SslPort>9898</SslPort>
   <EnableSsl>False</EnableSsl>
-  <LaunchBrowser>True</LaunchBrowser>
   <ApiKey>*</ApiKey>
-  <AuthenticationMethod>Basic</AuthenticationMethod>
+  <AuthenticationMethod>External</AuthenticationMethod>
   <AuthenticationRequired>DisabledForLocalAddresses</AuthenticationRequired>
   <Branch>master</Branch>
   <LogLevel>info</LogLevel>
@@ -335,9 +333,8 @@ cat > config.xml <<EOF
   <Port>8989</Port>
   <SslPort>9898</SslPort>
   <EnableSsl>False</EnableSsl>
-  <LaunchBrowser>True</LaunchBrowser>
   <ApiKey>*</ApiKey>
-  <AuthenticationMethod>Basic</AuthenticationMethod>
+  <AuthenticationMethod>External</AuthenticationMethod>
   <AuthenticationRequired>DisabledForLocalAddresses</AuthenticationRequired>
   <Branch>main</Branch>
   <LogLevel>info</LogLevel>
