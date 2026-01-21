@@ -97,6 +97,9 @@ server:
     - path: /folder
       config:
         defaultEnabled: true
+auth:
+  methods:
+    noauth: true
 EOF
 # ----------------------------------------------config-homepage
 cd /arr/homepage
@@ -146,12 +149,9 @@ cat > services.yaml <<EOF
         href: http://192.168.1.4:12000
 
 - Ads Management:
-    - Pi-hole:
-        icon: pi-hole.png
-        href: https://192.168.1.2/admin/login
     - Technitium:
         icon: technitium.png
-        href: http://192.168.1.11:5380
+        href: https://192.168.1.2:53443
 
 - Media:
     - Jellyseerr:
@@ -488,7 +488,6 @@ services:
       - 8080:80
     environment:
       FILEBROWSER_CONFIG: "data/config.yaml"
-      FILEBROWSER_ADMIN_PASSWORD: ""
     volumes:
       - /:/folder
       - ./filebrowser/data:/home/filebrowser/data
