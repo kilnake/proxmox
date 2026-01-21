@@ -452,7 +452,7 @@ services:
       - TZ=Europe/Stockholm
   jellyfin:
     container_name: jellyfin
-    image: linuxserver/jellyfin:latest
+    image: ghcr.io/jellyfin/jellyfin:latest
     restart: unless-stopped
     ports:
       - 8096:8096
