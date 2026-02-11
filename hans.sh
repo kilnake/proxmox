@@ -687,26 +687,6 @@ services:
       - homepage.container=radarr
 
 ###############################################
-# Bazarr
-###############################################
-#  bazarr:
-#    <<: *common-keys
-#    container_name: bazarr
-#    image: ghcr.io/hotio/bazarr:latest
-#    ports:
-#      - 6767:6767
-#    volumes:
-#      - ./bazarr:/config
-#      - /data/media/movies:/movies
-#      - /data/media/tv:/tv
-#    labels:
-#      - homepage.group=Media
-#      - homepage.name=Bazarr
-#      - homepage.icon=bazarr
-#      - homepage.href=http://${HOST_IP}:6767
-#      - homepage.container=bazarr
-
-###############################################
 # Prowlarr
 ###############################################
   prowlarr:
