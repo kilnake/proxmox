@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eu
+set -e
 
 mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowserquantum/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
 
@@ -15,7 +15,6 @@ cat > .env <<EOF
 HOST_IP=192.168.1.9
 EOF
 source .env
-export HOST_IP=192.168.1.9
 ##################################
 # ---Jellyfin-Movies-location---
 ##################################
