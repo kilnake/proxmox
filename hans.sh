@@ -12,7 +12,7 @@ chmod -R a=,a+rX,u+w,g+w /data/media/tv /data/media/movies /data/torrents/tv /da
 ##################################
 cd /arr
 cat > .env <<EOF
-HOST_IP=192.168.1.4
+HOST_IP=192.168.1.9
 EOF
 
 ##################################
