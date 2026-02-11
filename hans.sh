@@ -780,11 +780,11 @@ services:
       - FILEBROWSER_DATABASE=data/database.db
     volumes:
       - /:/folder
-      - ./filebrowser/data:/home/filebrowser/data
+      - ./filebrowserquantum/data:/home/filebrowserquantum/data
     labels:
       - homepage.group=System
       - homepage.name=File Browser
-      - homepage.icon=filebrowser
+      - homepage.icon=filebrowser-quantum
       - homepage.href=http://${HOST_IP}:8080
       - homepage.container=filebrowserquantum
 
