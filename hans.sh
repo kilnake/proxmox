@@ -1,11 +1,11 @@
 #!/bin/sh
 set -e
 
-mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowserquantum/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
+mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowser/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
 
-chown -R 1000:1000 /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowserquantum/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
+chown -R 1000:1000 /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowser/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
 
-chmod -R a=,a+rX,u+w,g+w /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowserquantum/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
+chmod -R a=,a+rX,u+w,g+w /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr /arr/prowlarr /arr/radarr /arr/sonarr /arr/qbittorrent /arr/qbittorrent/config /arr/filebrowser/data /arr/jellyfin/config/root/default/Movies /arr/jellyfin/config/root/default/Shows /arr/jellyfin/config/config
 
 ##################################
 # ---.env---
@@ -418,7 +418,7 @@ EOF
 ##################################
 # ---config-filebrowser-quantum---
 ##################################
-cd /arr/filebrowserquantum/data
+cd /arr/filebrowser/data
 cat > config.yaml <<EOF
 server:
   sources:
@@ -760,10 +760,10 @@ services:
       - FILEBROWSER_DATABASE=data/database.db
     volumes:
       - /:/folder
-      - ./filebrowserquantum/data:/home/filebrowserquantum/data
+      - ./filebrowser/data:/home/filebrowser/data
     labels:
       - homepage.group=System
-      - homepage.name=File Browser
+      - homepage.name=Filebrowser Quantum
       - homepage.icon=filebrowser-quantum
       - homepage.href=http://${HOST_IP}:8080
       - homepage.container=filebrowserquantum
