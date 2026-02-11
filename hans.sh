@@ -14,6 +14,7 @@ cd /arr
 cat > .env <<EOF
 HOST_IP=192.168.1.9
 EOF
+source .env
 export HOST_IP=192.168.1.9
 ##################################
 # ---Jellyfin-Movies-location---
