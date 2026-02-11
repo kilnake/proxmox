@@ -418,7 +418,7 @@ EOF
 ##################################
 # ---config-filebrowser-quantum---
 ##################################
-cd /arr/filebrowser/data
+cd /arr/filebrowserquantum/data
 cat > config.yaml <<EOF
 server:
   sources:
