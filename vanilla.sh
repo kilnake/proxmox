@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr/prowlarr /arr/radarr /arr/sonarr
-chown -R 1000:1000 /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr/prowlarr /arr/radarr /arr/sonarr
-chmod -R a=,a+rX,u+w,g+w /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr/prowlarr /arr/radarr /arr/sonarr
+mkdir -p /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr/prowlarr /arr/radarr /arr/sonarr /arr/filebrowser/data /arr/homepage
+chown -R 1000:1000 /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr/prowlarr /arr/radarr /arr/sonarr /arr/filebrowser/data /arr/homepage
+chmod -R a=,a+rX,u+w,g+w /data/media/tv /data/media/movies /data/torrents/tv /data/torrents/movies /arr/prowlarr /arr/radarr /arr/sonarr /arr/filebrowser/data /arr/homepage
 
 ##################################
 # ---.env---
