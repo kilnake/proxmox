@@ -6,3 +6,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/main/pil
 
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/refs/heads/main/hans.sh)"
+
+
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/kilnake/proxmox/refs/heads/main/vanilla.sh)"
